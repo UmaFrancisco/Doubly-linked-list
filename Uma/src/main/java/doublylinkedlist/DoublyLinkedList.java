@@ -48,4 +48,15 @@ public class DoublyLinkedList {
     			insertAfter(list,lastNode,newNode);
     		}
     }
+	    public void remove(List<DNode> list,DNode node){
+    		if (node.previousNode==null){
+    			firstNode=node.nextNode;
+    		}else if(node.nextNode==null){
+    			lastNode=node.previousNode;
+    		}else{
+    			node.previousNode.nextNode=node.nextNode;
+    			node.nextNode.previousNode=node.previousNode;
+    		}
+    		list.remove(node);
+    }
 }
