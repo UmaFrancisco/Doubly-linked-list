@@ -41,4 +41,11 @@ public class DoublyLinkedList {
     			insertBefore(list,firstNode,newNode);
     		}
     }
+	    public void insertEnd(List<DNode> list,DNode newNode){
+    		if(lastNode == null){
+    			insertBeginning(list,newNode);
+    		}else{
+    			insertAfter(list,lastNode,newNode);
+    		}
+    }
 }
