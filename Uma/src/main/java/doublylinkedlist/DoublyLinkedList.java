@@ -31,4 +31,14 @@ public class DoublyLinkedList {
 	    		}
 	    		list.add(newNode);
 	    }
+	    public void insertBeginning (List<DNode> list,DNode newNode){
+    		if(firstNode==null){
+    			firstNode=newNode;
+    			lastNode=newNode;
+    			newNode.nextNode=null;
+    			newNode.previousNode=null;
+    		}else{
+    			insertBefore(list,firstNode,newNode);
+    		}
+    }
 }
