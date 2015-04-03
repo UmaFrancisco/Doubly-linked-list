@@ -19,4 +19,16 @@ public class DoublyLinkedList {
 	    		}
 	    		list.add(newNode);
 	    }
+	    public void insertBefore(List<DNode> list,DNode node,DNode newNode){
+	    	newNode.previousNode=node.previousNode;
+	    	newNode.nextNode=node;
+	    		if(newNode.previousNode==null){
+	    			firstNode=newNode;
+	    			node.previousNode=newNode;
+	    		}else{
+	    			node.previousNode.nextNode=newNode;
+	    			node.previousNode=newNode;
+	    		}
+	    		list.add(newNode);
+	    }
 }
