@@ -2,12 +2,18 @@ package doublylinkedlist;
 import java.util.*;
 public class DoublyLinkedList {
 	// points to first node of list
-		DNode firstNode;
+		DNode firstNode=null;
 		// points to last node of list
-	    DNode lastNode;
+	    DNode lastNode=null;
+	    List<DNode> list=new ArrayList<DNode>();
+	    
+
+	    public DoublyLinkedList(DNode node){
+	    	insertBeginning(node);
+	    }
 
 	    
-	    public void insertAfter(List<DNode> list,DNode node,DNode newNode ){
+	    public void insertAfter(DNode node,DNode newNode ){
 	    	newNode.previousNode=node;
 	    	newNode.nextNode=node.nextNode;
 	    		if(newNode.nextNode==null){
@@ -19,7 +25,7 @@ public class DoublyLinkedList {
 	    		}
 	    		list.add(newNode);
 	    }
-	    public void insertBefore(List<DNode> list,DNode node,DNode newNode){
+	    public void insertBefore(DNode node,DNode newNode){
 	    	newNode.previousNode=node.previousNode;
 	    	newNode.nextNode=node;
 	    		if(newNode.previousNode==null){
@@ -31,24 +37,24 @@ public class DoublyLinkedList {
 	    		}
 	    		list.add(newNode);
 	    }
-	    public void insertBeginning (List<DNode> list,DNode newNode){
+	    public void insertBeginning (DNode newNode){
     		if(firstNode==null){
     			firstNode=newNode;
     			lastNode=newNode;
     			newNode.nextNode=null;
     			newNode.previousNode=null;
     		}else{
-    			insertBefore(list,firstNode,newNode);
+    			insertBefore(firstNode,newNode);
     		}
     }
-	    public void insertEnd(List<DNode> list,DNode newNode){
+	    public void insertEnd(DNode newNode){
     		if(lastNode == null){
-    			insertBeginning(list,newNode);
+    			insertBeginning(newNode);
     		}else{
-    			insertAfter(list,lastNode,newNode);
+    			insertAfter(lastNode,newNode);
     		}
     }
-	    public void remove(List<DNode> list,DNode node){
+	    public void remove(DNode node){
     		if (node.previousNode==null){
     			firstNode=node.nextNode;
     		}else if(node.nextNode==null){
@@ -59,4 +65,13 @@ public class DoublyLinkedList {
     		}
     		list.remove(node);
     }
+	    public List<DNode> returnList(){
+	    	return list;
+	    }
+	    public DNode firstNode(){
+	    	return firstNode;
+	    }
+	    public DNode lastNode(){
+	    	return lastNode;
+	    }
 }
